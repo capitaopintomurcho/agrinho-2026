@@ -1,1 +1,564 @@
+/* ==========================================================================
+   RESET & CONFIGURAÇÕES DE BASE
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+html {
+    scroll-behavior: smooth;
+    font-family: 'Arial', sans-serif;
+    color: #333333;
+    line-height: 1.6;
+}
+
+body {
+    background-color: #fafafa;
+    padding-top: 70px; /* Evita que o topo da página suma sob a barra fixa */
+}
+
+.container {
+    width: 100%;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ==========================================================================
+   ELEMENTOS REUTILIZÁVEIS E COMPONENTES GERAIS
+   ========================================================================== */
+.section-padding {
+    padding: 80px 0;
+}
+
+.bg-light {
+    background-color: #f4f6f4;
+}
+
+.bg-dark {
+    background-color: #1a2e1a;
+}
+
+.text-light {
+    color: #e2ede2;
+}
+
+.text-white {
+    color: #ffffff;
+}
+
+.section-title {
+    font-size: 2rem;
+    text-align: center;
+    color: #2c4c2c;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    text-align: center;
+    color: #666666;
+    margin-bottom: 50px;
+}
+
+.bg-dark .section-subtitle {
+    color: #a3bda3;
+}
+
+/* BOTÕES */
+.btn-primary {
+    display: inline-block;
+    background-color: #4caf50;
+    color: #ffffff;
+    padding: 14px 32px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-primary:hover {
+    background-color: #3d8b40;
+    transform: translateY(-2px);
+}
+
+/* ESTRUTURA DE TABELA/LINHA PARA COLUNAS SIMPLES SEM GRID/FLEX */
+.row {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
+.col {
+    display: table-cell;
+    vertical-align: middle;
+    padding: 0 15px;
+}
+
+/* ==========================================================================
+   CABEÇALHO & BARRA DE NAVEGAÇÃO
+   ========================================================================== */
+.navbar {
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 15px 0;
+}
+
+.nav-container {
+    display: table;
+    width: 100%;
+}
+
+.logo {
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #2c4c2c;
+}
+
+.logo-icon {
+    font-size: 1.6rem;
+    vertical-align: middle;
+}
+
+nav {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+}
+
+.nav-links {
+    list-style: none;
+    display: inline-block;
+}
+
+.nav-links li {
+    display: inline-block;
+    margin-left: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #555555;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover {
+    color: #4caf50;
+}
+
+/* ==========================================================================
+   BANNER PRINCIPAL (HERO)
+   ========================================================================== */
+.hero-section {
+    position: relative;
+    background: url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+    height: calc(100vh - 70px);
+    min-height: 550px;
+    display: table;
+    width: 100%;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(20, 38, 20, 0.75); /* Camada verde-oliva escura */
+    z-index: 1;
+}
+
+.hero-content {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    color: #ffffff;
+}
+
+.hero-content h1 {
+    font-size: 3.2rem;
+    margin-bottom: 15px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.hero-content .slogan {
+    font-size: 1.35rem;
+    margin-bottom: 30px;
+    color: #e2ede2;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-content .pergunta-norteadora {
+    font-size: 1.1rem;
+    font-style: italic;
+    background-color: rgba(255, 255, 255, 0.08);
+    padding: 18px 25px;
+    border-left: 4px solid #4caf50;
+    display: inline-block;
+    max-width: 750px;
+    margin: 0 auto 35px auto;
+    text-align: left;
+    line-height: 1.5;
+}
+
+/* ==========================================================================
+   SEÇÃO 1: MÉTRICAS DA ECONOMIA
+   ========================================================================== */
+.card-metric {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+    text-align: center;
+    border-top: 5px solid #4caf50;
+}
+
+.card-metric h4 {
+    font-size: 1.15rem;
+    color: #666666;
+    margin-bottom: 10px;
+}
+
+.metric-value {
+    font-size: 3.8rem;
+    font-weight: 800;
+    color: #2c4c2c;
+    line-height: 1;
+    margin-bottom: 15px;
+}
+
+/* ==========================================================================
+   SEÇÃO 2: CARDS DE TECNOLOGIA VERDE (BLOCO MULTIPLO)
+   ========================================================================== */
+.grid-cards {
+    width: 100%;
+    text-align: center;
+}
+
+.card-tech {
+    display: inline-block;
+    width: 47%;
+    margin-bottom: 30px;
+    margin-right: 4%;
+    background-color: #ffffff;
+    padding: 35px 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.02);
+    vertical-align: top;
+    min-height: 250px;
+    text-align: left;
+    border: 1px solid #eef2ee;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.grid-cards .card-tech:nth-child(2n) {
+    margin-right: 0;
+}
+
+.card-tech:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(44,76,44,0.08);
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.card-tech h3 {
+    font-size: 1.3rem;
+    color: #2c4c2c;
+    margin-bottom: 12px;
+}
+
+.card-tech p {
+    font-size: 0.95rem;
+    color: #666666;
+}
+
+/* ==========================================================================
+   SEÇÃO 3: BLOCOS DE DESAFIOS
+   ========================================================================== */
+.desafio-item {
+    background-color: rgba(255, 255, 255, 0.04);
+    padding: 25px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    border-left: 4px solid #ff5722;
+}
+
+.desafio-item:last-child {
+    margin-bottom: 0;
+}
+
+.desafio-item h4 {
+    font-size: 1.2rem;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.desafio-item p {
+    color: #b3cbba;
+    font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   SEÇÃO 4: CONTEÚDO DE SOLUÇÕES (FUTURO)
+   ========================================================================== */
+.solucoes-block {
+    background-color: #eef7ee;
+    border: 1px solid #c2e2c4;
+    padding: 45px;
+    border-radius: 8px;
+}
+
+.solucoes-block h3 {
+    color: #2c4c2c;
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+}
+
+.solucoes-block p {
+    margin-bottom: 15px;
+    font-size: 1.05rem;
+}
+
+.solucoes-block p:last-child {
+    margin-bottom: 0;
+}
+
+/* ==========================================================================
+   COMPLEMENTAR: QUIZ INTERATIVO
+   ========================================================================== */
+.quiz-container {
+    max-width: 750px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+}
+
+.quiz-question {
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    color: #333333;
+}
+
+.quiz-option-btn {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background-color: #f7f9f7;
+    border: 2px solid #e2ede2;
+    padding: 16px 20px;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: inherit;
+    cursor: pointer;
+    margin-bottom: 14px;
+    transition: all 0.2s ease;
+}
+
+.quiz-option-btn:hover:not(:disabled) {
+    background-color: #eef7ee;
+    border-color: #4caf50;
+    padding-left: 25px;
+}
+
+/* Estados controlados por injeção de classe no JavaScript */
+.quiz-option-btn.correct {
+    background-color: #d4edda !important;
+    border-color: #28a745 !important;
+    color: #155724 !important;
+    font-weight: bold;
+}
+
+.quiz-option-btn.incorrect {
+    background-color: #f8d7da !important;
+    border-color: #dc3545 !important;
+    color: #721c24 !important;
+}
+
+.quiz-feedback {
+    display: none;
+    padding: 15px 20px;
+    border-radius: 6px;
+    margin-top: 20px;
+    font-size: 1rem;
+}
+
+.text-success {
+    background-color: #e2f0d9;
+    color: #2e6930;
+    border-left: 4px solid #28a745;
+}
+
+.text-danger {
+    background-color: #fce8e6;
+    color: #a83232;
+    border-left: 4px solid #dc3545;
+}
+
+/* ==========================================================================
+   SEÇÃO 5: FORMULÁRIO DE CAPTAÇÃO
+   ========================================================================== */
+.form-container {
+    max-width: 650px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 45px;
+    border-radius: 8px;
+    box-shadow: 0 4px 25px rgba(0,0,0,0.04);
+}
+
+.form-group {
+    margin-bottom: 22px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #444444;
+    font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 1rem;
+    background-color: #fafafa;
+    transition: border-color 0.3s, background-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #4caf50;
+    background-color: #ffffff;
+}
+
+.btn-submit {
+    width: 100%;
+    background-color: #2c4c2c;
+    color: #ffffff;
+    border: none;
+    padding: 16px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-submit:hover {
+    background-color: #1a2e1a;
+}
+
+/* ==========================================================================
+   RODAPÉ (FOOTER)
+   ========================================================================== */
+.footer {
+    background-color: #111e11;
+    color: #8da38d;
+    padding: 45px 0;
+    text-align: center;
+    font-size: 0.9rem;
+    border-top: 3px solid #4caf50;
+}
+
+.footer-content p {
+    margin-bottom: 12px;
+}
+
+.footer-manifesto {
+    font-style: italic;
+    color: #557555;
+    margin-bottom: 0 !important;
+}
+
+/* ==========================================================================
+   REGRAS DE RESPONSIVIDADE (MOBILE FIRST / COMPATIBILIDADE)
+   ========================================================================== */
+@media screen and (max-width: 768px) {
+    body {
+        padding-top: 0; /* Desativa padding fixo */
+    }
+
+    .navbar {
+        position: relative;
+    }
+
+    .nav-container, nav {
+        display: block;
+        text-align: center;
+    }
+
+    .logo {
+        display: block;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    .nav-links li {
+        margin: 5px 10px;
+    }
+
+    .row {
+        display: block;
+    }
+    
+    .col {
+        display: block;
+        width: 100% !important;
+        padding: 0;
+        margin-bottom: 35px;
+    }
+    
+    .col:last-child {
+        margin-bottom: 0;
+    }
+
+    .card-tech {
+        display: block;
+        width: 100%;
+        margin-right: 0;
+        min-height: auto;
+    }
+
+    .hero-section {
+        height: auto;
+        padding: 60px 0;
+    }
+
+    .hero-content h1 {
+        font-size: 2.1rem;
+    }
+
+    .hero-content .slogan {
+        font-size: 1.1rem;
+    }
+}
